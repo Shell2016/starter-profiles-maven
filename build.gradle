@@ -6,6 +6,8 @@ allprojects {
     group = 'ru.michaelshell'
     version = '0.0.1-SNAPSHOT'
 
+    apply plugin: 'java'
+
     java {
         toolchain {
             languageVersion = JavaLanguageVersion.of(21)
