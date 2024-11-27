@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    group = 'ru.michaelshell'
+    version = '0.0.1-SNAPSHOT'
+
+    apply plugin: 'java'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    ext {
+        profile = project.hasProperty('profile') ? project.profile : 'default'
+    }
+}
+
+wrapper {
+    gradleVersion = "8.11.1"
+}
+
+tasks.register('printProfile') {
+    doLast {
+        println "Gradle profile enabled: $profile"
+    }
+}
+
+compileJava.dependsOn(printProfile)
+

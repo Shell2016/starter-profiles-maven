@@ -1,0 +1,4 @@
+rootProject.name = 'starter-profiles-maven'
+include(':application')
+include(':common')
+include(':starter')
